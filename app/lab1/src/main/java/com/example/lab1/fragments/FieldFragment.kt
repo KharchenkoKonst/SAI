@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.lab1.R
+import com.example.lab1.views.FieldView
 
-class ImageFragment : Fragment() {
+class FieldFragment : Fragment() {
+
+    private lateinit var field: FieldView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -16,6 +20,13 @@ class ImageFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_field, container, false)
     }
 
-}
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        field = view.findViewById(R.id.field_view)
+    }
 
-class MyView
+    fun changeField(n: Int) {
+        field.n = n
+        field.invalidate()
+    }
+}
