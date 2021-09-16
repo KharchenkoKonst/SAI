@@ -14,7 +14,7 @@ class FieldView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
 
     var padding = 10f
     var radius = 50f
-    var n: Int = 5
+    var n: Int = 1
 
     override fun onDraw(canvas: Canvas) {
 

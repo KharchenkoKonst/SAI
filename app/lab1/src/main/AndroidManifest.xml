@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name=".Lab1Activity"
+            android:name=".Lab1ActivityImpl"
             android:exported="true" />
     </application>
 

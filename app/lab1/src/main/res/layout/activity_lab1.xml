@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Lab1Activity">
+    tools:context=".Lab1ActivityImpl">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/graph_fragment"
@@ -39,6 +39,7 @@
         android:layout_marginRight="25dp"
         android:gravity="center"
         android:minWidth="30dp"
+        android:text="8"
         app:layout_constraintEnd_toStartOf="@id/btn_refresh"
         app:layout_constraintTop_toTopOf="@id/btn_refresh" />
 </androidx.constraintlayout.widget.ConstraintLayout>
