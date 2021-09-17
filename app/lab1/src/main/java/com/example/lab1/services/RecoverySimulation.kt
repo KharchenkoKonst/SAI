@@ -22,14 +22,14 @@ class RecoverySimulation {
      */
     fun solveQueensPuzzle(count: Int): Solution {
         /** Оригинальное (текущее) решение */
-        var currentSolution = Solution(count)
+        val currentSolution = Solution(count)
 
         /** Найденное (рабочее) решение */
-        var workSolution = Solution(count)
+        val workSolution = Solution(count)
         workSolution.arrangement = currentSolution.copy()
 
         /** Лучшее решение */
-        var bestSolution = Solution(count)
+        val bestSolution = Solution(count)
         bestSolution.arrangement = currentSolution.copy()
 
         var temperature = INITIAL_TEMPERATURE
