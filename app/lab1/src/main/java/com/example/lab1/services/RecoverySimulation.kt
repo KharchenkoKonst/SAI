@@ -20,7 +20,7 @@ class RecoverySimulation {
      * @param count число ферзей
      * @return лучшее найденное решение
      */
-    fun solveQueensPuzzle(count: Int): Solution {
+    fun solveQueensPuzzle(count: Int): Solution? {
         /** Оригинальное (текущее) решение */
         val currentSolution = Solution(count)
 
@@ -60,6 +60,8 @@ class RecoverySimulation {
             temperature *= ALPHA
         }
 
-        return bestSolution
+        if (bestSolution.conflictsCount == 0) {
+            return bestSolution
+        } else return null
     }
 }

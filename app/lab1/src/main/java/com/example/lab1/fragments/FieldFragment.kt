@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.lab1.R
+import com.example.lab1.domain.models.Solution
 import com.example.lab1.views.FieldView
 
 class FieldFragment : Fragment() {
@@ -16,7 +17,6 @@ class FieldFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_field, container, false)
     }
 
@@ -27,6 +27,11 @@ class FieldFragment : Fragment() {
 
     fun changeField(n: Int) {
         field.n = n
+        field.invalidate()
+    }
+
+    fun showSolution(solution: Solution) {
+        field.solution = solution
         field.invalidate()
     }
 }

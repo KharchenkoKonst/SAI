@@ -9,6 +9,9 @@ class Lab1Presenter(private val view: Lab1Activity) {
     private val recoverySimulation = RecoverySimulation()
 
     fun runRecoverySimulation(count: Int) {
-        Log.d("bestSolution", "${recoverySimulation.solveQueensPuzzle(count).arrangement}")
+        recoverySimulation.solveQueensPuzzle(count)?.let {
+            view.showSolutionOnField(count, it)
+            Log.d("bestSolution", "${recoverySimulation.solveQueensPuzzle(count)?.arrangement}")
+        }
     }
 }
