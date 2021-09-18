@@ -45,7 +45,6 @@ class Solution(private val count: Int) {
         val dx = listOf(-1, 1, -1, 1)
         val dy = listOf(-1, 1, 1, -1)
 
-//        val field = mutableListOf(mutableListOf<Char>())
         val field = Array(count) { CharArray(count) }
         var conflicts = 0
 

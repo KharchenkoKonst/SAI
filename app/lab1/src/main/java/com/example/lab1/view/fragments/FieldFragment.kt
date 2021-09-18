@@ -1,4 +1,4 @@
-package com.example.lab1.fragments
+package com.example.lab1.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.lab1.R
 import com.example.lab1.domain.models.Solution
-import com.example.lab1.views.FieldView
+import com.example.lab1.view.custom_views.FieldView
 
 class FieldFragment : Fragment() {
 
