@@ -5,7 +5,7 @@
     android:id="@+id/grapg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Lab1ActivityImpl">
+    tools:context=".view.activities.Lab1ActivityImpl">
 
 
 </com.jjoe64.graphview.GraphView>

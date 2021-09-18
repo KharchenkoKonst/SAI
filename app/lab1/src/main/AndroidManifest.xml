@@ -4,7 +4,10 @@
 
     <application>
         <activity
-            android:name=".Lab1ActivityImpl"
+            android:name=".view.activities.PreferencesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.activities.Lab1ActivityImpl"
             android:exported="true" />
     </application>
 

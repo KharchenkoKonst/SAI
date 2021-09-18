@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:defaultValue="8"
+        android:key="queens_count"
+        android:title="Количество фигур" />
+
+    <EditTextPreference
+        android:defaultValue="30.0"
+        android:key="initial_temperature"
+        android:title="Начальная температура" />
+
+    <EditTextPreference
+        android:defaultValue="0.5"
+        android:key="final_temperature"
+        android:title="Конечная температура" />
+
+    <EditTextPreference
+        android:defaultValue="100"
+        android:key="steps_per_change"
+        android:title="Итераций на шаг" />
+
+    <EditTextPreference
+        android:defaultValue="0.98"
+        android:key="alpha"
+        android:title="Альфа" />
+
+</PreferenceScreen>
