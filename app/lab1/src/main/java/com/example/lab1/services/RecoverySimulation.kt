@@ -6,7 +6,9 @@ import com.example.lab1.config.INITIAL_TEMPERATURE
 import com.example.lab1.config.STEPS_PER_CHANGE
 import com.example.lab1.domain.models.Solution
 import com.example.lab1.domain.models.copy
+import com.jjoe64.graphview.series.DataPoint
 import kotlin.math.exp
+import kotlin.math.roundToInt
 import kotlin.random.Random
 
 /**
@@ -14,13 +16,22 @@ import kotlin.random.Random
  */
 class RecoverySimulation {
 
+    //лог решений для вывода графика
+    private val logBestSolution = mutableListOf<DataPoint>()
+    private val logWrongDecisions = mutableListOf<DataPoint>()
+
     /**
      * Решить задачу о размещении ферзей
      *
      * @param count число ферзей
      * @return лучшее найденное решение
+     *
      */
-    fun solveQueensPuzzle(count: Int): Solution? {
+    fun solveQueensPuzzle(count: Int): List<Any>? {
+        logBestSolution.clear()
+        logWrongDecisions.clear()
+        var decision = 0
+
         /** Оригинальное (текущее) решение */
         val currentSolution = Solution(count)
 
@@ -50,6 +61,13 @@ class RecoverySimulation {
                 if (useNew) {
                     useNew = false
                     currentSolution.arrangement = workSolution.copy()
+                    logWrongDecisions.add(
+                        DataPoint(
+                            decision.toDouble(),
+                            ((temperature * 100).roundToInt() / 100.0)
+                        )
+                    )
+                    decision++
                     if (currentSolution.conflictsCount < bestSolution.conflictsCount) {
                         bestSolution.arrangement = currentSolution.copy()
                     }
@@ -57,11 +75,17 @@ class RecoverySimulation {
                     workSolution.arrangement = currentSolution.copy()
                 }
             }
+            logBestSolution.add(
+                DataPoint(
+                    ((temperature * 100).roundToInt() / 100.0),
+                    bestSolution.conflictsCount.toDouble()
+                )
+            )
             temperature *= ALPHA
         }
 
-        if (bestSolution.conflictsCount == 0) {
-            return bestSolution
-        } else return null
+        return if (bestSolution.conflictsCount == 0) {
+            listOf(bestSolution, logBestSolution.toTypedArray().reversedArray(), logWrongDecisions.toTypedArray())
+        } else null
     }
 }

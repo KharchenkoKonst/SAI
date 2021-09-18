@@ -8,11 +8,13 @@ import com.example.lab1.domain.models.Solution
 import com.example.lab1.fragments.GraphFragment
 import com.example.lab1.fragments.FieldFragment
 import com.example.lab1.presenter.Lab1Presenter
+import com.jjoe64.graphview.series.DataPoint
 
 class Lab1ActivityImpl : AppCompatActivity(), Lab1Activity {
 
     private lateinit var presenter: Lab1Presenter
     private lateinit var fieldFragment: FieldFragment
+    private lateinit var graphFragment: GraphFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class Lab1ActivityImpl : AppCompatActivity(), Lab1Activity {
     override fun onStart() {
         super.onStart()
         fieldFragment = supportFragmentManager.findFragmentById(R.id.field_fragment) as FieldFragment
+        graphFragment = supportFragmentManager.findFragmentById(R.id.graph_fragment) as GraphFragment
     }
 
     private fun presenterInit() {
@@ -51,5 +54,9 @@ class Lab1ActivityImpl : AppCompatActivity(), Lab1Activity {
     override fun showSolutionOnField(count: Int, solution: Solution) {
         scaleField(count)
         fieldFragment.showSolution(solution)
+    }
+
+    override fun showBestSolutionLog(log: Array<DataPoint>) {
+        graphFragment.setData(log)
     }
 }
